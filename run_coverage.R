@@ -8,7 +8,9 @@ library(covr)
 message("Calculating package coverage...")
 cov <- tryCatch({
   package_coverage(
-    type = "all",
+    # Codecov should measure test coverage only. Including vignettes/examples
+    # makes the badge depend on document rendering tools such as Pandoc.
+    type = "tests",
     quiet = FALSE,
     clean = FALSE
   )

@@ -88,6 +88,7 @@ jobs:
 
       - name: Generate and Upload Coverage Report to Codecov
         if: success() && matrix.config.os == 'ubuntu-latest' && matrix.config.r == 'release' # Only run coverage once
+        continue-on-error: true
         shell: Rscript {0}
         run: |
           pkg <- "${{ steps.pkg_info.outputs.PKG }}"

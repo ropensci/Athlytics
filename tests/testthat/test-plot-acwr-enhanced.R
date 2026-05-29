@@ -102,6 +102,13 @@ test_that("plot_acwr_enhanced rejects grouped reference data unless filtered", {
 test_that("plot_acwr_enhanced handles risk zones and custom labels", {
   p_zone <- plot_acwr_enhanced(acwr_with_ci, highlight_zones = TRUE)
   expect_true(any(layer_geoms(p_zone) %in% c("GeomRect", "GeomAnnotation")))
+  expect_match(p_zone$labels$caption, "Zones: Green")
+
+  p_no_zone <- plot_acwr_enhanced(acwr_with_ci, highlight_zones = FALSE)
+  expect_null(p_no_zone$labels$caption)
+
+  p_no_caption <- plot_acwr_enhanced(acwr_with_ci, caption = NULL)
+  expect_null(p_no_caption$labels$caption)
 
   p_labels <- plot_acwr_enhanced(
     acwr_with_ci,

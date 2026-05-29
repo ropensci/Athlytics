@@ -5,18 +5,22 @@
 <h1 align="center">Athlytics</h1>
 
 <p align="center">
-  <!-- Group 1: CI/CD, Reviews & Licenses -->
+  <!-- Group 1: CRAN release status -->
+  <a href="https://cran.r-project.org/package=Athlytics"><img src="https://www.r-pkg.org/badges/version/Athlytics?style=flat-square&label=CRAN%20release" alt="CRAN Release"></a>
+  <a href="https://cran.r-project.org/package=Athlytics"><img src="https://cranlogs.r-pkg.org/badges/grand-total/Athlytics?style=flat-square" alt="CRAN Downloads"></a>
+  <a href="https://CRAN.R-project.org/view=SportsAnalytics"><img src="https://img.shields.io/badge/Task%20View-Sports%20Analytics-orange?style=flat-square" alt="CRAN Task View: Sports Analytics"></a>
+  <br>
+  <!-- Group 2: CI/CD, Reviews & Licenses -->
   <a href="https://github.com/ropensci/Athlytics/actions/workflows/R-CMD-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/ropensci/Athlytics/R-CMD-check.yml?style=flat-square&label=R-CMD-check" alt="R-CMD-check"></a>
   <a href="https://github.com/ropensci/software-review/issues/728"><img src="https://badges.ropensci.org/728_status.svg" alt="rOpenSci Status"></a>
   <a href="https://docs.ropensci.org/Athlytics/"><img src="https://img.shields.io/badge/docs-passing-brightgreen?style=flat-square" alt="Documentation"></a>
   <a href="https://app.codecov.io/gh/ropensci/Athlytics"><img src="https://img.shields.io/codecov/c/github/ropensci/Athlytics?style=flat-square" alt="Codecov"></a>
   <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="MIT License"></a>
-  <br>
-  <!-- Group 2: CRAN Release & Status (Moved to the back) -->
-  <a href="https://cran.r-project.org/package=Athlytics"><img src="https://www.r-pkg.org/badges/version/Athlytics?style=flat-square" alt="CRAN Version"></a>
-  <a href="https://CRAN.R-project.org/view=SportsAnalytics"><img src="https://img.shields.io/badge/Task%20View-Sports%20Analytics-orange?style=flat-square" alt="CRAN Task View: Sports Analytics"></a>
-  <a href="https://cran.r-project.org/package=Athlytics"><img src="https://cranlogs.r-pkg.org/badges/grand-total/Athlytics?style=flat-square" alt="CRAN Downloads"></a>
+</p>
+
+<p align="center">
+  <strong>Current release installs directly from CRAN with <code>install.packages("Athlytics")</code>.</strong>
 </p>
 
 
@@ -40,38 +44,35 @@ The package standardizes the workflow from data ingestion and quality control to
 
 ## 📦 Installation
 
-**1. R-Universe (rOpenSci, recommended)**
-```r
-install.packages("Athlytics", repos = c('https://ropensci.r-universe.dev', 'https://cloud.r-project.org'))
-```
+**Install the current CRAN release**
 
-**2. Development Version (GitHub)**
-```r
-# install.packages("remotes")
-remotes::install_github("ropensci/Athlytics")
-```
+Athlytics is now available directly from CRAN. For most users, this is the
+recommended installation path:
 
-**3. CRAN (outdated; 0.1.2)**
 ```r
 install.packages("Athlytics")
 ```
-*The CRAN build does **not** include the offline-export workflow, the
-time-weighted HR coverage fix, the continuous steady-block EF /
-decoupling logic, zip-aware PB calculation, `time_basis`, the
-`missing_load` knob, or any of the 1.0.x rOpenSci review fixes. Only
-use it if you specifically need the legacy Strava-API pipeline.*
+
+The CRAN release includes the offline Strava export workflow, ZIP-aware stream
+parsing, ACWR/EWMA/exposure robustness fixes, EF and decoupling stream
+diagnostics, cohort-reference helpers, and the rOpenSci review updates.
+
+The source repository, documentation, issue tracker, and rOpenSci review record
+are linked from the package metadata and badges above.
 
 ### Optional: stream parser support
 
 Athlytics can parse TCX/GPX activity stream files when the suggested `xml2`
 package is installed. **FIT support is optional** and uses **FITfileR**, which
-is installed from GitHub (not CRAN).
+is available from the FITfileR r-universe repository.
 
 If your Strava export includes `.fit` files (and you want Athlytics to parse them), install FITfileR:
 
 ```r
-if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
-remotes::install_github("grimbough/FITfileR")
+install.packages(
+  "FITfileR",
+  repos = c("https://grimbough.r-universe.dev", "https://cloud.r-project.org")
+)
 ```
 
 
@@ -188,7 +189,7 @@ Athlytics processes personal training records. Ensure appropriate consent for co
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guide. Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
+Contributions are welcome! Please read our [CONTRIBUTING.md](https://github.com/ropensci/Athlytics/blob/main/CONTRIBUTING.md) guide. Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
 
 *   **🐛 Report an Issue**: [Open an Issue](https://github.com/ropensci/Athlytics/issues)
 *   **💡 Suggest a Feature**: [Start a Discussion](https://github.com/ropensci/Athlytics/discussions)

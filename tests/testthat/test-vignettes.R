@@ -1,3 +1,7 @@
+# These tests inspect source docs that are not present in covr's installed-package
+# test directory; regular R CMD check still runs them.
+skip_on_covr()
+
 test_that("intro vignette examples match current API contracts", {
   intro_path <- test_path("../../vignettes/athlytics_introduction.Rmd")
   skip_if_not(file.exists(intro_path))

@@ -4,14 +4,13 @@
 \name{Athlytics-package}
 \alias{Athlytics-package}
 \alias{Athlytics}
-\title{Athlytics: Academic R Package for Sports Physiology Analysis from Local 'Strava' Data}
+\title{Athlytics: Sports Physiology Analysis from Local 'Strava' Data}
 \description{
-An open-source computational framework for longitudinal analysis of exercise physiology metrics using local 'Strava' data exports. Designed for personal analysis and sports science applications, this package provides standardized functions to calculate and visualize key physiological indicators including Acute:Chronic Workload Ratio (ACWR), Efficiency Factor (EF), and training load metrics.
+Tools for reproducible, offline analysis of endurance-training data exported from 'Strava'. Provides data import, quality-control, cohort-reference, and visualization helpers for sports-science indicators including acute:chronic workload ratio, aerobic efficiency, cardiovascular decoupling, exposure, and personal-best profiles.
 
-Athlytics is an open-source computational framework for longitudinal analysis
-of exercise physiology metrics using local Strava data exports. Designed for
-personal analysis and sports science applications, this package provides
-standardized functions to calculate and visualize key physiological indicators.
+Athlytics provides tools for reproducible, offline analysis of endurance
+training data exported from Strava. It includes data import, quality-control,
+cohort-reference, and visualization helpers for sports-science indicators.
 }
 \section{Main Functions}{
 

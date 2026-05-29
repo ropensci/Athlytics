@@ -14,13 +14,7 @@ plot_acwr_enhanced(
   title = NULL,
   subtitle = NULL,
   method_label = NULL,
-  caption = if (highlight_zones) {
-    
-    "Zones: Green = Reference Band (0.8-1.3) | Orange = Elevated ACWR | Red = High ACWR (>1.5)"
- }
-    else {
-     NULL
- }
+  caption = default_acwr_zone_caption(highlight_zones)
 )
 }
 \arguments{

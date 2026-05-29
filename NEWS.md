@@ -153,9 +153,8 @@
   authoritative field.
 * Documented the `missing_load` knob on every training-load entry
   point.
-* README: installation section now prominently flags the
-  CRAN / GitHub version mismatch (CRAN `0.1.2` vs GitHub `1.0.5`) and
-  recommends r-universe or GitHub for the current offline workflow.
+* README: installation section now documents CRAN, r-universe, and
+  GitHub installation paths consistently for the 1.0.5 release.
   Citation `version` updated from 1.0.4 to 1.0.5. The Quick Start
   ZIP note now reflects `calculate_pbs()` and `calculate_decoupling()`
   being zip-aware in 1.0.5.

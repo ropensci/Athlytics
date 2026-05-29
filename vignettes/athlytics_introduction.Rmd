@@ -46,18 +46,9 @@ This tutorial will guide you through a complete workflow—from loading your Str
 For installation instructions, see the [README](https://github.com/ropensci/Athlytics#installation). The quick version:
 
 ```{r eval=FALSE}
-# Current release from r-universe (recommended)
-install.packages(
-  "Athlytics",
-  repos = c("https://ropensci.r-universe.dev", "https://cloud.r-project.org")
-)
-
-# Development version from GitHub
-remotes::install_github("ropensci/Athlytics")
+# Stable release from CRAN
+install.packages("Athlytics")
 ```
-
-CRAN currently carries an older release (`0.1.2`). Use r-universe or GitHub for
-the current offline Strava ZIP workflow described here.
 
 ## Your Strava Data Export
 
@@ -839,14 +830,14 @@ Congratulations! You now know how to use all core features of Athlytics.
 Ready to go deeper? Check out:
 
 - **[Advanced Features Tutorial](advanced_features.html)** — EWMA-based ACWR with confidence intervals, quality control, and cohort analysis
-- **[Function Reference](../reference/index.html)** — Complete documentation of all functions
+- **[Function Reference](https://docs.ropensci.org/Athlytics/reference/index.html)** — Complete documentation of all functions
 
 ## For Researchers
 
 If you're using Athlytics for research:
 
-1. **Cohort Studies**: See [calculate_cohort_reference()](../reference/calculate_cohort_reference.html) for multi-athlete percentile comparisons
-2. **Data Quality**: Use [flag_quality()](../reference/flag_quality.html) for stream data quality control
+1. **Cohort Studies**: See [calculate_cohort_reference()](https://docs.ropensci.org/Athlytics/reference/calculate_cohort_reference.html) for multi-athlete percentile comparisons
+2. **Data Quality**: Use [flag_quality()](https://docs.ropensci.org/Athlytics/reference/flag_quality.html) for stream data quality control
 3. **Statistical Analysis**: All functions return tidy data frames ready for lme4, survival analysis, etc.
 
 ## Citation

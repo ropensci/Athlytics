@@ -1,5 +1,18 @@
 # R/plot_acwr_enhanced.R
 
+default_acwr_zone_caption <- function(highlight_zones) {
+  if (!isTRUE(highlight_zones)) {
+    return(NULL)
+  }
+
+  paste(
+    "Zones: Green = Reference Band (0.8-1.3)",
+    "Orange = Elevated ACWR",
+    "Red = High ACWR (>1.5)",
+    sep = " | "
+  )
+}
+
 #' Enhanced ACWR Plot with Confidence Bands and Reference
 #'
 #' Creates a comprehensive ACWR visualization with optional confidence bands
@@ -78,11 +91,7 @@ plot_acwr_enhanced <- function(acwr_data,
                                title = NULL,
                                subtitle = NULL,
                                method_label = NULL,
-                               caption = if (highlight_zones) {
-                                 "Zones: Green = Reference Band (0.8-1.3) | Orange = Elevated ACWR | Red = High ACWR (>1.5)"
-                               } else {
-                                 NULL
-                               }) {
+                               caption = default_acwr_zone_caption(highlight_zones)) {
   # --- Input Validation ---
   if (!is.data.frame(acwr_data)) {
     stop("`acwr_data` must be a data frame from calculate_acwr_ewma().")

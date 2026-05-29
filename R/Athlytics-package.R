@@ -1,13 +1,12 @@
 #' @keywords internal
 "_PACKAGE"
 
-#' Athlytics: Academic R Package for Sports Physiology Analysis
+#' Athlytics: Sports Physiology Analysis from Local Strava Data
 #'
 #' @description
-#' Athlytics is an open-source computational framework for longitudinal analysis
-#' of exercise physiology metrics using local Strava data exports. Designed for
-#' personal analysis and sports science applications, this package provides
-#' standardized functions to calculate and visualize key physiological indicators.
+#' Athlytics provides tools for reproducible, offline analysis of endurance
+#' training data exported from Strava. It includes data import, quality-control,
+#' cohort-reference, and visualization helpers for sports-science indicators.
 #'
 #' @section Main Functions:
 #' **Data Loading:**

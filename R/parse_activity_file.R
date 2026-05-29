@@ -213,7 +213,10 @@ parse_fit_file <- function(file_path) {
   fit_pkg <- "FITfileR"
 
   if (!requireNamespace(fit_pkg, quietly = TRUE)) {
-    warning("Package 'FITfileR' is required to parse FIT files. Please install it from GitHub: remotes::install_github('grimbough/FITfileR')")
+    warning(paste(
+      "Package 'FITfileR' is required to parse FIT files.",
+      "Install it with install.packages('FITfileR', repos = c('https://grimbough.r-universe.dev', 'https://cloud.r-project.org'))."
+    ))
     return(NULL)
   }
 
