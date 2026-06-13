@@ -14,7 +14,7 @@ authors:
     orcid: 0009-0009-0171-4578
     affiliation: 1
 affiliations:
-  - name: Independent Researcher
+  - name: Medical Artificial Intelligence Innovation Center, Shanghai East Hospital, Tongji University, Shanghai, China
     index: 1
 date: 9 May 2026
 bibliography: paper.bib
