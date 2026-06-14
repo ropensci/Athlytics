@@ -1,5 +1,5 @@
 ---
-title: 'Athlytics: Reproducible Scientific Workflows for Cohort Analysis of Endurance Training using Local Strava Data'
+title: 'Athlytics: Reproducible Scientific Workflows for Cohort Analysis of Endurance Training Using Local Strava Exports'
 tags:
   - R
   - sports science
@@ -8,7 +8,7 @@ tags:
   - cohort analysis
   - reproducibility
   - ACWR
-  - cardiac drift
+  - cardiovascular decoupling
 authors:
   - name: Zhiang He
     orcid: 0009-0009-0171-4578
@@ -16,7 +16,7 @@ authors:
 affiliations:
   - name: Medical Artificial Intelligence Innovation Center, Shanghai East Hospital, Tongji University, Shanghai, China
     index: 1
-date: 9 May 2026
+date: 13 June 2026
 bibliography: paper.bib
 version: 1.0.5
 license: MIT
@@ -24,13 +24,13 @@ license: MIT
 
 # Summary
 
-**Athlytics** is an R package that delivers a **complete, API-free workflow for the reproducible analysis of endurance-training data**. Working entirely from **local Strava archives** (ZIP files or CSVs), it provides an integrated pipeline from import and quality control to key physiological metrics, including **acute-to-chronic workload ratios (ACWR)** [@gabbett2016], aerobic efficiency, and cardiac decoupling. Unlike API-dependent approaches, Athlytics is **offline and cohort-first**, integrating quality control, physiological guardrails, and uncertainty reporting into a single, auditable workflow.
+Athlytics is an R package for reproducible, offline analysis of endurance-training data exported from Strava. It reads local ZIP and CSV exports and provides a pipeline for import, quality control, cohort summaries, and visualization of metrics including acute-to-chronic workload ratios (ACWR) [@gabbett2016], aerobic efficiency, and cardiovascular decoupling (pa:hr). The package is designed for analyses that need to be repeatable without OAuth credentials, API quotas, or changing service availability.
 
 # Statement of Need
 
-Analyzing endurance training data in R often requires stitching together API clients, file parsers, and custom scripts. This creates workflows that are fragile and difficult to reproduce, especially for **cohort-scale** research. **Athlytics** addresses this gap by providing a **single, research-oriented pipeline** that works offline with local archives, offers an integrated suite of physiological models, and is built from the ground up for multi-athlete analysis. This design **reduces "glue code"** and makes cohort-scale analyses auditable and easy to reproduce. The primary audience for Athlytics includes **sports scientists, sports epidemiologists, and endurance coaches** who need a reliable, programmatic way to process cohort-scale Strava data reproducibly, bridging the gap between raw XML/FIT files and advanced physiological models.
+Researchers and coaches working with wearable data often need to combine API clients, file parsers, quality-control scripts, and metric-specific code before analysis can begin. This is especially fragile for cohort-scale studies, where authentication, rate limits, and inconsistent export formats can obstruct reproducible workflows. Athlytics fills this gap by offering one research-oriented R workflow for local Strava export archives, from raw XML/FIT/CSV-derived activity data to physiological indicators and cohort reference bands. Its primary audience is sports scientists, sports epidemiologists, and endurance coaches who need auditable, programmatic analyses across one or more athletes.
 
-# Related Work 
+# Related Work
 
 We provide a direct feature comparison to highlight the capabilities essential for reproducible, cohort-scale research.
 
@@ -39,7 +39,7 @@ We provide a direct feature comparison to highlight the capabilities essential f
 | **Offline archives; No OAuth/tokens/quotas** | ✓ | ✕ (API) | ✓ | ✓ | ✓ (tabular) | ✓ (tabular) |
 | **API-limited (OAuth, scope, rate-limits)** | ✕ | ✓ | ✕ | ✕ | ✕ | ✕ |
 | **End-to-end pipeline (Import→QC→Models→Plot)** | ✓ | ✕ | **Partial** (parsing/viz) | **Partial** (parsing/pace) | ✕ | ✕ |
-| **Built-in metrics (ACWR/EF/Decoupling)** | ✓ | ✕ | ✕ | ✕ | **Partial** (ACWR only) | ✕ |
+| **Built-in metrics (ACWR/EF/decoupling)** | ✓ | ✕ | ✕ | ✕ | **Partial** (ACWR only) | ✕ |
 | **Steady-state guards & HR-coverage checks** | ✓ | ✕ | ✕ | ✕ | ✕ | ✕ |
 | **Uncertainty (ACWR-EWMA confidence bands)** | ✓ | ✕ | ✕ | ✕ | ✕ | ✕ |
 | **Cohort benchmarking (percentile bands)** | ✓ | ✕ | **Partial** (summaries only) | ✕ | ✕ | **Partial** (for injury/exposure) |
@@ -50,15 +50,15 @@ Compared with existing R tools, Athlytics combines local Strava export ingestion
 # Software Description
 
 -   **Offline Data Parsing:** Operates directly on local Strava ZIP exports. Using `.tcx` and `.gpx` parsers through `xml2` plus optional `.fit` parsing through `FITfileR` [@FITfileR], activity streams are loaded on demand.
--   **Physiological & Load Metrics:** Supports multiple load tracking algorithms including HRSS (TRIMP-based) and TSS approximations. Calculates core metrics such as **Aerobic Decoupling**, **Efficiency Factor (EF)**, and automatically tracks **Personal Bests (PBs)** using sliding-window spatial algorithms.
+-   **Physiological & Load Metrics:** Supports multiple load tracking algorithms including HRSS (TRIMP-based) and TSS approximations. Calculates core metrics such as cardiovascular decoupling (pa:hr), Efficiency Factor (EF), and automatically tracks Personal Bests (PBs) using sliding-window spatial algorithms.
 -   **Signal Processing & Quality Control:** Automatically filters implausible HR, power, and velocity samples and identifies steady-state output segments using a rolling coefficient of variation (CV) algorithm to support valid physiological comparisons.
--   **Uncertainty Quantification:** Provides confidence intervals for EWMA-based ACWR models using a moving-block bootstrap [@kunsch1989; @politis1994], partly preserving short-range temporal dependence in training loads. This uncertainty reporting acknowledges the ongoing conceptual debates surrounding ACWR as a predictive tool [@impellizzeri2020acwr; @impellizzeri2021dismiss].
+-   **Uncertainty Quantification:** Provides confidence intervals for EWMA-based ACWR models using a moving-block bootstrap [@kunsch1989], partly preserving short-range temporal dependence in training loads. This uncertainty reporting acknowledges the ongoing conceptual debates surrounding ACWR as a predictive tool [@impellizzeri2020acwr; @impellizzeri2021dismiss].
 -   **Cohort Benchmarking & Visualization:** Generates population-level percentile reference bands (`calculate_cohort_reference()`) that can be layered onto publication-ready ACWR plots (e.g., `plot_acwr_enhanced()`).
 -   **Diagnostics & Transparency:** Functions return **diagnostic fields** (e.g., `status`, `quality_score`, `hr_coverage`) when inputs are insufficient, making the workflow transparent and debuggable.
 
 # Example
 
-The following example demonstrates a common cohort analysis workflow: loading data from multiple athletes, calculating ACWR for each, and plotting an individual against cohort-wide reference bands.
+The following example demonstrates a common cohort analysis workflow: using pre-computed sample ACWR data to construct a synthetic three-athlete cohort, deriving cohort-wide reference bands, and plotting one athlete against those bands.
 
 ```r
 library(Athlytics)
@@ -66,6 +66,7 @@ library(dplyr)
 
 # 1. Use built-in sample data to simulate a cohort of athletes
 data("sample_acwr", package = "Athlytics")
+set.seed(42)
 cohort_acwr <- bind_rows(
   sample_acwr %>% mutate(athlete_id = "A1"),
   sample_acwr %>% mutate(
@@ -93,6 +94,7 @@ individual_acwr <- cohort_acwr %>% filter(athlete_id == "A1")
 plot_acwr_enhanced(
   acwr_data = individual_acwr,
   reference_data = reference_bands,
+  show_ci = FALSE,
   show_reference = TRUE,
   highlight_zones = TRUE
 )
@@ -100,7 +102,7 @@ plot_acwr_enhanced(
 
 # Acknowledgements
 
-I would like to thank Benjamin S. Baumer and Iztok Fister Jr. for their insightful feedback and constructive suggestions during the development of this package.
+The author thanks Benjamin S. Baumer and Iztok Fister Jr. for their insightful feedback during early development, and rOpenSci handling editor Emily Riederer and reviewers Eunseop Kim and Simon Nolte for their peer-review guidance.
 
 This work received no external funding.
 
