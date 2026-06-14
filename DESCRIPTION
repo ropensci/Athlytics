@@ -1,6 +1,6 @@
 Package: Athlytics
 Title: A Reproducible Framework for Endurance Data Analysis
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: c(
     person("Zhiang", "He", email = "ang@hezhiang.com", role = c("aut", "cre")),
     person("Eunseop", "Kim", role = "rev",

@@ -16,9 +16,9 @@ authors:
 affiliations:
   - name: Medical Artificial Intelligence Innovation Center, Shanghai East Hospital, Tongji University, Shanghai, China
     index: 1
-date: 13 June 2026
+date: 14 June 2026
 bibliography: paper.bib
-version: 1.0.5
+version: 1.0.6
 license: MIT
 ---
 

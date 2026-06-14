@@ -1,3 +1,18 @@
+# Athlytics 1.0.6
+
+## Documentation and packaging
+
+* Standardized the package title to "Athlytics: A Reproducible Framework for
+  Endurance Data Analysis" across the `DESCRIPTION`, citation metadata
+  (`CITATION.cff`, `inst/CITATION`, `codemeta.json`), the README, the vignette,
+  and the JOSS paper.
+* Added `.zenodo.json` so Zenodo software-archive deposits carry the correct
+  title, author ORCID, and MIT license.
+* Added `.DS_Store` to `.gitignore`.
+
+This release changes documentation and packaging metadata only; no analysis
+behaviour changed.
+
 # Athlytics 1.0.5
 
 ## Robustness and documentation updates
