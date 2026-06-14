@@ -36,14 +36,14 @@ We provide a direct feature comparison to highlight the capabilities essential f
 
 | Feature (research-relevant) | **Athlytics** | rStrava [@rStrava] | trackeR [@trackeR_jss] | activatr [@activatr] | ACWR [@ACWR] | injurytools [@injurytools] |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Offline archives; No OAuth/tokens/quotas** | ✓ | ✕ (API) | ✓ | ✓ | ✓ (tabular) | ✓ (tabular) |
-| **API-limited (OAuth, scope, rate-limits)** | ✕ | ✓ | ✕ | ✕ | ✕ | ✕ |
-| **End-to-end pipeline (Import→QC→Models→Plot)** | ✓ | ✕ | **Partial** (parsing/viz) | **Partial** (parsing/pace) | ✕ | ✕ |
-| **Built-in metrics (ACWR/EF/decoupling)** | ✓ | ✕ | ✕ | ✕ | **Partial** (ACWR only) | ✕ |
-| **Steady-state guards & HR-coverage checks** | ✓ | ✕ | ✕ | ✕ | ✕ | ✕ |
-| **Uncertainty (ACWR-EWMA confidence bands)** | ✓ | ✕ | ✕ | ✕ | ✕ | ✕ |
-| **Cohort benchmarking (percentile bands)** | ✓ | ✕ | **Partial** (summaries only) | ✕ | ✕ | **Partial** (for injury/exposure) |
-| **Diagnostic outputs (status codes/fields)** | ✓ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| **Offline archives; No OAuth/tokens/quotas** | Yes | No (API) | Yes | Yes | Yes (tabular) | Yes (tabular) |
+| **API-limited (OAuth, scope, rate-limits)** | No | Yes | No | No | No | No |
+| **End-to-end pipeline (Import→QC→Models→Plot)** | Yes | No | **Partial** (parsing/viz) | **Partial** (parsing/pace) | No | No |
+| **Built-in metrics (ACWR/EF/decoupling)** | Yes | No | No | No | **Partial** (ACWR only) | No |
+| **Steady-state guards & HR-coverage checks** | Yes | No | No | No | No | No |
+| **Uncertainty (ACWR-EWMA confidence bands)** | Yes | No | No | No | No | No |
+| **Cohort benchmarking (percentile bands)** | Yes | No | **Partial** (summaries only) | No | No | **Partial** (for injury/exposure) |
+| **Diagnostic outputs (status codes/fields)** | Yes | No | No | No | No | No |
 
 Compared with existing R tools, Athlytics combines local Strava export ingestion, quality-control checks, ACWR/EF/decoupling workflows, uncertainty summaries, and cohort reference bands in a single offline workflow.
 
