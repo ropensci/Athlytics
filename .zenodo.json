@@ -1,0 +1,33 @@
+{
+  "title": "Athlytics: A Reproducible Framework for Endurance Data Analysis",
+  "description": "An R package for reproducible, offline analysis of endurance-training data exported from Strava. Provides data import, quality control, cohort-reference, and visualization helpers for sports-science indicators including acute:chronic workload ratio (ACWR), aerobic efficiency (EF), cardiovascular decoupling (pa:hr), exposure, and personal-best profiles. Operates on local ZIP/CSV/FIT/TCX/GPX archives without OAuth credentials, API quotas, or changing service availability.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "He, Zhiang",
+      "orcid": "0009-0009-0171-4578",
+      "affiliation": "Medical Artificial Intelligence Innovation Center, Shanghai East Hospital, Tongji University, Shanghai, China"
+    }
+  ],
+  "keywords": [
+    "R",
+    "sports science",
+    "exercise physiology",
+    "training load",
+    "ACWR",
+    "cardiovascular decoupling",
+    "aerobic efficiency",
+    "Strava",
+    "endurance",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/ropensci/Athlytics",
+      "scheme": "url"
+    }
+  ]
+}
