@@ -88,6 +88,9 @@ lib/
 # Auto-generated documentation (built by pkgdown CI)
 docs/
 
+# macOS
+.DS_Store
+
 # Temporary image files
 image.png
 image/
