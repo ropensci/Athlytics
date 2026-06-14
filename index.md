@@ -57,6 +57,7 @@ statistical modeling and figure generation for academic reporting.
 **1. Stable Release (CRAN)**
 
 ``` r
+
 install.packages("Athlytics")
 ```
 
@@ -66,6 +67,7 @@ ZIP file support.*
 **2. R-Universe**
 
 ``` r
+
 # Enable repository from r-universe
 options(repos = c(
   hzacode = 'https://hzacode.r-universe.dev'))
@@ -77,6 +79,7 @@ install.packages('Athlytics')
 **3. Development Version (GitHub - Recommended)**
 
 ``` r
+
 # First, install remotes if you don't have it
 # install.packages("remotes")
 
@@ -94,6 +97,7 @@ If your Strava export includes `.fit` files (and you want Athlytics to
 parse them), install FITfileR:
 
 ``` r
+
 if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
 remotes::install_github("grimbough/FITfileR")
 ```
@@ -125,6 +129,7 @@ calculating their training load, and comparing one athlete to the group
 average.
 
 ``` r
+
 library(Athlytics)
 library(dplyr)
 

@@ -123,12 +123,12 @@ head(reference)
 #> # A tibble: 6 × 5
 #>   date       sport n_athletes percentile value
 #>   <date>     <chr>      <int> <chr>      <dbl>
-#> 1 2023-02-03 Run            3 p05        0.825
-#> 2 2023-02-03 Run            3 p25        0.853
-#> 3 2023-02-03 Run            3 p50        0.888
-#> 4 2023-02-03 Run            3 p75        0.898
-#> 5 2023-02-03 Run            3 p95        0.906
-#> 6 2023-02-04 Run            3 p05        0.889
+#> 1 2023-02-03 Run            3 p05        0.815
+#> 2 2023-02-03 Run            3 p25        0.821
+#> 3 2023-02-03 Run            3 p50        0.828
+#> 4 2023-02-03 Run            3 p75        0.858
+#> 5 2023-02-03 Run            3 p95        0.882
+#> 6 2023-02-04 Run            3 p05        0.865
 
 if (FALSE) { # \dontrun{
 # Full workflow with real data - Load activities for multiple athletes

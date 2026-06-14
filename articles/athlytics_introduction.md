@@ -29,6 +29,7 @@ For installation instructions, see the
 version:
 
 ``` r
+
 # CRAN (stable)
 install.packages("Athlytics")
 
@@ -58,6 +59,7 @@ download link 5. Download the ZIP file (e.g., `export_12345678.zip`) 6.
 ### Basic Loading
 
 ``` r
+
 library(Athlytics)
 library(dplyr) # For data manipulation
 
@@ -73,6 +75,7 @@ head(activities)
 Let’s explore what we just loaded:
 
 ``` r
+
 # How many activities do you have?
 nrow(activities)
 # Example output: [1] 847
@@ -109,6 +112,7 @@ names(activities)
 Before analysis, it’s good practice to check your data:
 
 ``` r
+
 # Summary statistics
 summary(activities |> select(distance, moving_time, average_heartrate))
 
@@ -130,6 +134,7 @@ for `!is.na(average_heartrate)` when calculating EF or decoupling.
 For focused analysis, you’ll often want to filter by type or date:
 
 ``` r
+
 # Only running activities
 runs <- activities |>
   filter(type == "Run")
@@ -172,6 +177,7 @@ training too quickly.
 #### Basic ACWR Calculation
 
 ``` r
+
 # Calculate ACWR for all running activities
 acwr_data <- calculate_acwr(
   activities_data = runs,
@@ -196,6 +202,7 @@ head(acwr_data)
 #### Visualizing ACWR
 
 ``` r
+
 # Basic plot
 plot_acwr(acwr_data)
 
@@ -206,6 +213,7 @@ plot_acwr(acwr_data, highlight_zones = TRUE)
 **Demo with Sample Data:**
 
 ``` r
+
 # Load built-in sample data
 data("sample_acwr", package = "Athlytics")
 
@@ -237,6 +245,7 @@ ACWR visualization using sample data
 **Practical Example:**
 
 ``` r
+
 # Identify high-risk periods
 high_risk <- acwr_data |>
   filter(acwr_smooth > 1.5) |>
@@ -282,6 +291,7 @@ Different load metrics for different goals:
 > 10.1097/00005768-199807000-00023](https://doi.org/10.1097/00005768-199807000-00023)
 
 ``` r
+
 # Calculate using HRSS (heart rate stress score)
 acwr_hrss <- calculate_acwr(
   activities_data = runs,
@@ -359,6 +369,7 @@ improvements.
 #### Calculate EF
 
 ``` r
+
 # For running (Speed/HR)
 ef_runs <- calculate_ef(
   activities_data = runs,
@@ -388,6 +399,7 @@ head(ef_runs)
 #### Visualizing EF Trends
 
 ``` r
+
 # Basic plot
 plot_ef(ef_runs)
 
@@ -403,6 +415,7 @@ plot_ef(ef_multi, add_trend_line = TRUE, smooth_per_activity_type = TRUE)
 **Demo with Sample Data:**
 
 ``` r
+
 # Load built-in sample data (contains Run + Ride activities)
 data("sample_ef", package = "Athlytics")
 
@@ -419,6 +432,7 @@ Efficiency Factor trend using sample data
 **Demo: Separate trend lines per discipline:**
 
 ``` r
+
 # Smooth per activity type to compare trends across disciplines
 plot_ef(sample_ef, add_trend_line = TRUE, smooth_per_activity_type = TRUE)
 #> `geom_smooth()` using formula = 'y ~ x'
@@ -473,6 +487,7 @@ EF with per-discipline smoothing
 **Practical Analysis:**
 
 ``` r
+
 # Calculate monthly average EF
 library(lubridate)
 
@@ -522,7 +537,9 @@ constant. Low decoupling indicates good aerobic endurance.
 The function compares efficiency (speed/HR or power/HR) between the
 first half and second half of an activity:
 
-$$\text{Decoupling \%} = \frac{\text{EF}_{\text{first half}} - \text{EF}_{\text{second half}}}{\text{EF}_{\text{first half}}} \times 100$$
+``` math
+\text{Decoupling \%} = \frac{\text{EF}_{\text{first half}} - \text{EF}_{\text{second half}}}{\text{EF}_{\text{first half}}} \times 100
+```
 
 Positive values = efficiency decline in second half (HR drift); \<5%
 commonly used as reference threshold, requires interpretation in context
@@ -539,6 +556,7 @@ of steady-state and environmental conditions (Coyle & González-Alonso,
 #### Calculate Decoupling
 
 ``` r
+
 # For running
 decoupling_runs <- calculate_decoupling(
   activities_data = runs,
@@ -568,6 +586,7 @@ head(decoupling_runs)
 #### Visualizing Decoupling
 
 ``` r
+
 # Basic plot
 plot_decoupling(data = decoupling_runs)
 
@@ -578,6 +597,7 @@ plot_decoupling(data = decoupling_runs, add_trend_line = TRUE)
 **Demo with Sample Data:**
 
 ``` r
+
 # Load built-in sample data
 data("sample_decoupling", package = "Athlytics")
 
@@ -596,6 +616,7 @@ Cardiovascular decoupling using sample data
 **1. Assess Aerobic Base:**
 
 ``` r
+
 # Recent decoupling average
 recent_decouple <- decoupling_runs |>
   filter(date >= Sys.Date() - 60) |>
@@ -613,6 +634,7 @@ if (recent_decouple$avg_decouple < 5) {
 **2. Monitor Training Block Progress:**
 
 ``` r
+
 # Compare decoupling over time
 library(ggplot2)
 
@@ -650,6 +672,7 @@ with periodization principles (Matveyev, 1981).
 #### Calculate PBs
 
 ``` r
+
 # Extract personal bests
 pbs <- calculate_pbs(
   activities_data = runs,
@@ -669,6 +692,7 @@ print(pbs)
 #### Visualize PB Progression
 
 ``` r
+
 # Plot PR progression
 plot_pbs(pbs)
 
@@ -680,6 +704,7 @@ print(pbs_5k)
 **Demo with Sample Data:**
 
 ``` r
+
 # Load built-in sample data
 data("sample_pbs", package = "Athlytics")
 
@@ -717,6 +742,7 @@ Visualize your training state in 2D space: acute load vs chronic load.
 #### Calculate and Plot Exposure
 
 ``` r
+
 # Calculate exposure
 exposure <- calculate_exposure(
   activities_data = runs,
@@ -731,6 +757,7 @@ plot_exposure(data = exposure, risk_zones = TRUE)
 **Demo with Sample Data:**
 
 ``` r
+
 # Load built-in sample data
 data("sample_exposure", package = "Athlytics")
 
@@ -759,6 +786,7 @@ Load exposure analysis using sample data
 Here’s a realistic, end-to-end analysis workflow:
 
 ``` r
+
 library(Athlytics)
 library(dplyr)
 library(ggplot2)
@@ -855,6 +883,7 @@ metrics (e.g., HR) are missing - Date range has no activities
 **Solutions:**
 
 ``` r
+
 # Check activity types in your data
 table(activities$type)
 
@@ -873,6 +902,7 @@ test <- calculate_acwr(activities_data = activities, activity_type = NULL)
 ACWR requires at least 28 days of data. Check your date range:
 
 ``` r
+
 # How much data do you have?
 date_span <- as.numeric(max(activities$date) - min(activities$date))
 cat(sprintf("Your data spans %d days\n", date_span))
@@ -885,6 +915,7 @@ cat(sprintf("Your data spans %d days\n", date_span))
 Some activities may lack required metrics (HR, power, etc.):
 
 ``` r
+
 # Filter before calculating
 runs_with_hr <- runs |> filter(!is.na(average_heartrate))
 ef_data <- calculate_ef(runs_with_hr, ef_metric = "speed_hr")
@@ -893,6 +924,7 @@ ef_data <- calculate_ef(runs_with_hr, ef_metric = "speed_hr")
 #### Plots look strange or empty
 
 ``` r
+
 # Check if data exists
 nrow(acwr_data)
 summary(acwr_data$acwr_smooth)
@@ -961,10 +993,11 @@ If you use Athlytics in your research, please cite:
 ## Session Info
 
 ``` r
+
 sessionInfo()
-#> R version 4.5.2 (2025-10-31)
+#> R version 4.6.0 (2026-04-24)
 #> Platform: x86_64-pc-linux-gnu
-#> Running under: Ubuntu 24.04.3 LTS
+#> Running under: Ubuntu 24.04.4 LTS
 #> 
 #> Matrix products: default
 #> BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
@@ -983,20 +1016,20 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> other attached packages:
-#> [1] ggplot2_4.0.2   Athlytics_1.0.4
+#> [1] ggplot2_4.0.3   Athlytics_1.0.4
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] Matrix_1.7-4       gtable_0.3.6       jsonlite_2.0.0     dplyr_1.2.0       
-#>  [5] compiler_4.5.2     tidyselect_1.2.1   jquerylib_0.1.4    splines_4.5.2     
-#>  [9] systemfonts_1.3.1  scales_1.4.0       textshaping_1.0.4  yaml_2.3.12       
-#> [13] fastmap_1.2.0      lattice_0.22-7     R6_2.6.1           labeling_0.4.3    
+#>  [1] Matrix_1.7-5       gtable_0.3.6       jsonlite_2.0.0     dplyr_1.2.1       
+#>  [5] compiler_4.6.0     tidyselect_1.2.1   jquerylib_0.1.4    splines_4.6.0     
+#>  [9] systemfonts_1.3.2  scales_1.4.0       textshaping_1.0.5  yaml_2.3.12       
+#> [13] fastmap_1.2.0      lattice_0.22-9     R6_2.6.1           labeling_0.4.3    
 #> [17] generics_0.1.4     knitr_1.51         htmlwidgets_1.6.4  tibble_3.3.1      
-#> [21] desc_1.4.3         lubridate_1.9.5    bslib_0.10.0       pillar_1.11.1     
-#> [25] RColorBrewer_1.1-3 rlang_1.1.7        cachem_1.1.0       xfun_0.56         
-#> [29] fs_1.6.6           sass_0.4.10        S7_0.2.1           otel_0.2.0        
-#> [33] timechange_0.4.0   cli_3.6.5          mgcv_1.9-3         withr_3.0.2       
-#> [37] pkgdown_2.2.0      magrittr_2.0.4     digest_0.6.39      grid_4.5.2        
-#> [41] nlme_3.1-168       lifecycle_1.0.5    vctrs_0.7.1        evaluate_1.0.5    
-#> [45] glue_1.8.0         farver_2.1.2       ragg_1.5.0         rmarkdown_2.30    
-#> [49] tools_4.5.2        pkgconfig_2.0.3    htmltools_0.5.9
+#> [21] desc_1.4.3         lubridate_1.9.5    bslib_0.11.0       pillar_1.11.1     
+#> [25] RColorBrewer_1.1-3 rlang_1.2.0        cachem_1.1.0       xfun_0.58         
+#> [29] fs_2.1.0           sass_0.4.10        S7_0.2.2           otel_0.2.0        
+#> [33] timechange_0.4.0   cli_3.6.6          mgcv_1.9-4         withr_3.0.2       
+#> [37] pkgdown_2.2.0      magrittr_2.0.5     digest_0.6.39      grid_4.6.0        
+#> [41] nlme_3.1-169       lifecycle_1.0.5    vctrs_0.7.3        evaluate_1.0.5    
+#> [45] glue_1.8.1         farver_2.1.2       ragg_1.5.2         rmarkdown_2.31    
+#> [49] tools_4.6.0        pkgconfig_2.0.3    htmltools_0.5.9
 ```

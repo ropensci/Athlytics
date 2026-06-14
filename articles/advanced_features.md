@@ -26,6 +26,7 @@ function detects common issues in activity stream data.
 ### Basic Quality Checking
 
 ``` r
+
 library(Athlytics)
 library(dplyr)
 
@@ -83,6 +84,7 @@ parameters - **Confidence bands** via bootstrap to quantify uncertainty
 ### Comparing RA vs EWMA
 
 ``` r
+
 # Load activities
 activities <- load_local_activities("export_12345678.zip")
 
@@ -135,6 +137,7 @@ Confidence bands quantify uncertainty in ACWR estimates, essential for
 research reporting.
 
 ``` r
+
 # Calculate EWMA with 95% confidence bands
 acwr_ewma_ci <- calculate_acwr_ewma(
   activities,
@@ -190,6 +193,7 @@ valuable to compare individuals to group norms.
 ### Multi-Athlete Setup
 
 ``` r
+
 # Load data for multiple athletes
 athlete1 <- load_local_activities("athlete1_export.zip") |>
   mutate(athlete_id = "athlete1", sex = "M", age_band = "25-35")
@@ -217,6 +221,7 @@ cohort_acwr <- cohort_data |>
 ### Calculate Reference Percentiles
 
 ``` r
+
 # Calculate cohort reference by activity type and sex
 reference <- calculate_cohort_reference(
   cohort_acwr,
@@ -244,6 +249,7 @@ head(reference)
 ### Plot Individual vs Cohort
 
 ``` r
+
 # Extract one athlete's data
 individual <- cohort_acwr |>
   filter(athlete_id == "athlete1")
@@ -276,6 +282,7 @@ trajectory to team norms
 Here’s a complete research workflow combining all features:
 
 ``` r
+
 library(Athlytics)
 library(dplyr)
 library(ggplot2)
@@ -340,10 +347,10 @@ write.csv(reference, "cohort_reference.csv", row.names = FALSE)
 
 ### ACWR Method Selection
 
-| Method                   | Pros                                            | Cons                                    | Recommended Use                                 |
-|--------------------------|-------------------------------------------------|-----------------------------------------|-------------------------------------------------|
-| **RA (Rolling Average)** | Stable, well-established, simple interpretation | Sudden jumps, equal weight to all days  | **Descriptive studies**, replicating prior work |
-| **EWMA**                 | Smooth, responsive, customizable decay          | More parameters, less established norms | **Monitoring**, sensitive change detection      |
+| Method | Pros | Cons | Recommended Use |
+|----|----|----|----|
+| **RA (Rolling Average)** | Stable, well-established, simple interpretation | Sudden jumps, equal weight to all days | **Descriptive studies**, replicating prior work |
+| **EWMA** | Smooth, responsive, customizable decay | More parameters, less established norms | **Monitoring**, sensitive change detection |
 
 **Default parameters:** - RA: 7-day acute, 28-day chronic (most common
 in literature) - EWMA: 3.5-day acute half-life, 14-day chronic half-life
@@ -409,10 +416,11 @@ repository URL. See the main tutorial for the complete citation.
 ## Session Info
 
 ``` r
+
 sessionInfo()
-#> R version 4.5.2 (2025-10-31)
+#> R version 4.6.0 (2026-04-24)
 #> Platform: x86_64-pc-linux-gnu
-#> Running under: Ubuntu 24.04.3 LTS
+#> Running under: Ubuntu 24.04.4 LTS
 #> 
 #> Matrix products: default
 #> BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
@@ -432,10 +440,10 @@ sessionInfo()
 #> 
 #> loaded via a namespace (and not attached):
 #>  [1] digest_0.6.39     desc_1.4.3        R6_2.6.1          fastmap_1.2.0    
-#>  [5] xfun_0.56         cachem_1.1.0      knitr_1.51        htmltools_0.5.9  
-#>  [9] rmarkdown_2.30    lifecycle_1.0.5   cli_3.6.5         sass_0.4.10      
-#> [13] pkgdown_2.2.0     textshaping_1.0.4 jquerylib_0.1.4   systemfonts_1.3.1
-#> [17] compiler_4.5.2    tools_4.5.2       ragg_1.5.0        bslib_0.10.0     
+#>  [5] xfun_0.58         cachem_1.1.0      knitr_1.51        htmltools_0.5.9  
+#>  [9] rmarkdown_2.31    lifecycle_1.0.5   cli_3.6.6         sass_0.4.10      
+#> [13] pkgdown_2.2.0     textshaping_1.0.5 jquerylib_0.1.4   systemfonts_1.3.2
+#> [17] compiler_4.6.0    tools_4.6.0       ragg_1.5.2        bslib_0.11.0     
 #> [21] evaluate_1.0.5    yaml_2.3.12       otel_0.2.0        jsonlite_2.0.0   
-#> [25] rlang_1.1.7       fs_1.6.6          htmlwidgets_1.6.4
+#> [25] rlang_1.2.0       fs_2.1.0          htmlwidgets_1.6.4
 ```

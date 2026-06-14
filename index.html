@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Academic R Package for Sports Physiology Analysis from Local Strava Data • Athlytics</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Academic R Package for Sports Physiology Analysis from Local Strava Data">
 <meta name="description" content="An open-source computational framework for longitudinal analysis of exercise physiology metrics using local Strava data exports. Designed for personal analysis and sports science applications, this package provides standardized functions to calculate and visualize key physiological indicators including Acute:Chronic Workload Ratio (ACWR), Efficiency Factor (EF), and training load metrics.">
@@ -80,7 +80,7 @@ Athlytics
 </ul>
 </div>
 <div class="section level2">
-<h2 id="id_-installation">📦 Installation<a class="anchor" aria-label="anchor" href="#id_-installation"></a>
+<h2 id="package-installation">📦 Installation<a class="anchor" aria-label="anchor" href="#package-installation"></a>
 </h2>
 <p><strong>1. Stable Release (CRAN)</strong></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -112,10 +112,10 @@ Athlytics
 </div>
 </div>
 <div class="section level2">
-<h2 id="id_-quick-start">🚀 Quick Start<a class="anchor" aria-label="anchor" href="#id_-quick-start"></a>
+<h2 id="rocket-quick-start">🚀 Quick Start<a class="anchor" aria-label="anchor" href="#rocket-quick-start"></a>
 </h2>
 <div class="section level3">
-<h3 id="id_-step-1-export-your-strava-data">📥 Step 1: Export Your Strava Data<a class="anchor" aria-label="anchor" href="#id_-step-1-export-your-strava-data"></a>
+<h3 id="inbox_tray-step-1-export-your-strava-data">📥 Step 1: Export Your Strava Data<a class="anchor" aria-label="anchor" href="#inbox_tray-step-1-export-your-strava-data"></a>
 </h3>
 <ol start="0" style="list-style-type: decimal">
 <li>
@@ -127,7 +127,7 @@ Athlytics
 </ol>
 </div>
 <div class="section level3">
-<h3 id="id_-step-2-load-and-analyze-cohort-example">💻 Step 2: Load and Analyze (Cohort Example)<a class="anchor" aria-label="anchor" href="#id_-step-2-load-and-analyze-cohort-example"></a>
+<h3 id="computer-step-2-load-and-analyze-cohort-example">💻 Step 2: Load and Analyze (Cohort Example)<a class="anchor" aria-label="anchor" href="#computer-step-2-load-and-analyze-cohort-example"></a>
 </h3>
 <p>This example shows a common workflow: loading data for several athletes, calculating their training load, and comparing one athlete to the group average.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -154,7 +154,7 @@ Athlytics
 </div>
 </div>
 <div class="section level2">
-<h2 id="id_-core-analyses">📊 Core Analyses<a class="anchor" aria-label="anchor" href="#id_-core-analyses"></a>
+<h2 id="bar_chart-core-analyses">📊 Core Analyses<a class="anchor" aria-label="anchor" href="#bar_chart-core-analyses"></a>
 </h2>
 <p>All functions return clean, tidy <code>tibble</code> data frames, making it easy to perform your own custom analysis or visualizations.</p>
 <div class="section level3">
@@ -186,14 +186,14 @@ Athlytics
 </div>
 </div>
 <div class="section level2">
-<h2 id="id_-methods--validation">📐 Methods &amp; Validation<a class="anchor" aria-label="anchor" href="#id_-methods--validation"></a>
+<h2 id="triangular_ruler-methods--validation">📐 Methods &amp; Validation<a class="anchor" aria-label="anchor" href="#triangular_ruler-methods--validation"></a>
 </h2>
 <p>This release implements widely used constructs in endurance-exercise analytics: - <strong>ACWR</strong>: rolling acute (e.g., 7-day) vs chronic (e.g., 28-day) load ratios with smoothing options. - <strong>Aerobic Efficiency (EF)</strong>: output (pace/power) relative to effort (heart rate) over time. - <strong>Cardiovascular Decoupling (pa:hr)</strong>: drift between pace/power and heart rate during steady efforts.</p>
 <p><strong>Important</strong>: ACWR is a descriptive monitoring tool and should be interpreted with caution. It is not a validated injury-prediction model; see discussion in the sports science literature (e.g., DOI: 10.1007/s40279-020-01378-6).</p>
 <p>We provide input validation, outlier handling, and activity-level QC filters (e.g., minimal duration, HR plausibility ranges). For cohort summarization, Athlytics computes percentile bands and supports stratification by sport, sex, or other covariates when available.</p>
 </div>
 <div class="section level2">
-<h2 id="id_-citation">📝 Citation<a class="anchor" aria-label="anchor" href="#id_-citation"></a>
+<h2 id="pencil-citation">📝 Citation<a class="anchor" aria-label="anchor" href="#pencil-citation"></a>
 </h2>
 <p>If you use <strong>Athlytics</strong> in academic work, please cite the software as well as the original methodological sources for specific metrics.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">@software{athlytics2025,</span></span>
@@ -205,12 +205,12 @@ Athlytics
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">}</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="id_️-ethical-considerations">⚖️ Ethical Considerations<a class="anchor" aria-label="anchor" href="#id_%EF%B8%8F-ethical-considerations"></a>
+<h2 id="balance_scale-ethical-considerations">⚖️ Ethical Considerations<a class="anchor" aria-label="anchor" href="#balance_scale-ethical-considerations"></a>
 </h2>
 <p>Athlytics processes personal training records. Ensure appropriate consent for cohort analyses, de-identify outputs where required, and comply with local IRB/ethics and data-protection regulations.</p>
 </div>
 <div class="section level2">
-<h2 id="id_-contributing">🤝 Contributing<a class="anchor" aria-label="anchor" href="#id_-contributing"></a>
+<h2 id="handshake-contributing">🤝 Contributing<a class="anchor" aria-label="anchor" href="#handshake-contributing"></a>
 </h2>
 <p>Contributions are welcome! Please read our <a href="CONTRIBUTING.html">CONTRIBUTING.md</a> guide and follow our <a href="CODE_OF_CONDUCT.html">Code of Conduct</a>.</p>
 <ul>
@@ -225,7 +225,7 @@ Athlytics
 </ul>
 </div>
 <div class="section level2">
-<h2 id="id_-acknowledgements">🙏 Acknowledgements<a class="anchor" aria-label="anchor" href="#id_-acknowledgements"></a>
+<h2 id="pray-acknowledgements">🙏 Acknowledgements<a class="anchor" aria-label="anchor" href="#pray-acknowledgements"></a>
 </h2>
 <p>We thank the <a href="https://www.pyopensci.org/" class="external-link">pyOpenSci</a> community, <a href="https://github.com/beanumber" class="external-link">Prof. Benjamin S. Baumer</a>, and <a href="https://github.com/firefly-cpp" class="external-link">Prof. Iztok Fister Jr.</a> for their valuable feedback and suggestions.</p>
 </div>

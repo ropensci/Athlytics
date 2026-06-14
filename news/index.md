@@ -284,10 +284,10 @@ reproducible testing.
 ### Major Changes
 
 - **Decoupling Calculation**: Switched from
-  [`rStrava::get_activity_streams`](https://rdrr.io/pkg/rStrava/man/get_activity_streams.html)
-  to direct Strava API calls using `httr` and `jsonlite` for fetching
-  activity streams in `calculate_decoupling`. This aims to resolve
-  previous errors but might impact performance and rate limiting.
+  `rStrava::get_activity_streams` to direct Strava API calls using
+  `httr` and `jsonlite` for fetching activity streams in
+  `calculate_decoupling`. This aims to resolve previous errors but might
+  impact performance and rate limiting.
 
 ### Bug Fixes & Improvements
 
