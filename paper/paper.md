@@ -32,9 +32,9 @@ Researchers and coaches working with wearable data often need to combine API cli
 
 # Related Work
 
-We provide a direct feature comparison to highlight the capabilities essential for reproducible, cohort-scale research.
+We provide a direct feature comparison against the most relevant existing R tools — rStrava [@rStrava], trackeR [@trackeR_jss], activatr [@activatr], the ACWR package [@ACWR], and injurytools [@injurytools] — to highlight the capabilities essential for reproducible, cohort-scale research.
 
-| Feature (research-relevant) | **Athlytics** | rStrava [@rStrava] | trackeR [@trackeR_jss] | activatr [@activatr] | ACWR [@ACWR] | injurytools [@injurytools] |
+| Feature (research-relevant) | **Athlytics** | rStrava | trackeR | activatr | ACWR | injurytools |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Offline archives; No OAuth/tokens/quotas** | Yes | No (API) | Yes | Yes | Yes (tabular) | Yes (tabular) |
 | **API-limited (OAuth, scope, rate-limits)** | No | Yes | No | No | No | No |
