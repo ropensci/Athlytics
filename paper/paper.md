@@ -1,5 +1,5 @@
 ---
-title: 'Athlytics: Reproducible Scientific Workflows for Cohort Analysis of Endurance Training Using Local Strava Exports'
+title: 'Athlytics: A Reproducible Framework for Endurance Data Analysis'
 tags:
   - R
   - sports science

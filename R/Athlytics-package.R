@@ -1,7 +1,7 @@
 #' @keywords internal
 "_PACKAGE"
 
-#' Athlytics: Sports Physiology Analysis from Local Strava Data
+#' Athlytics: A Reproducible Framework for Endurance Data Analysis
 #'
 #' @description
 #' Athlytics provides tools for reproducible, offline analysis of endurance

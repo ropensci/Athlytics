@@ -1,5 +1,5 @@
 Package: Athlytics
-Title: Sports Physiology Analysis from Local 'Strava' Data
+Title: A Reproducible Framework for Endurance Data Analysis
 Version: 1.0.5
 Authors@R: c(
     person("Zhiang", "He", email = "ang@hezhiang.com", role = c("aut", "cre")),

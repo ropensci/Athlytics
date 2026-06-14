@@ -4,7 +4,7 @@
 \name{Athlytics-package}
 \alias{Athlytics-package}
 \alias{Athlytics}
-\title{Athlytics: Sports Physiology Analysis from Local 'Strava' Data}
+\title{Athlytics: A Reproducible Framework for Endurance Data Analysis}
 \description{
 Tools for reproducible, offline analysis of endurance-training data exported from 'Strava'. Provides data import, quality-control, cohort-reference, and visualization helpers for sports-science indicators including acute:chronic workload ratio, aerobic efficiency, cardiovascular decoupling, exposure, and personal-best profiles.
 
