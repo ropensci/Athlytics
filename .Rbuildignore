@@ -28,8 +28,6 @@
 ^\.Rhistory$
 # Ignore OS specific hidden files
 ^\.DS_Store$
-^\.claude$
-^\.claude/.*
 (^|/)\._.*$
 ^Thumbs\.db$
 # Ignore testthat snapshots if any
