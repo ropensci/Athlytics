@@ -104,7 +104,7 @@ plot_acwr_enhanced(
 
 The author thanks Benjamin S. Baumer and Iztok Fister Jr. for their insightful feedback during early development, and rOpenSci handling editor Emily Riederer and reviewers Eunseop Kim and Simon Nolte for their peer-review guidance.
 
-The Joint Laboratory of Biomedical Artificial Intelligence was jointly established by the Institute of Software, Chinese Academy of Sciences, and Shanghai East Hospital.
+The author acknowledges institutional support from the Joint Laboratory of Biomedical Artificial Intelligence, jointly established by the Institute of Software, Chinese Academy of Sciences, and Shanghai East Hospital.
 
 This work received no external funding.
 
