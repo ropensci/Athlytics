@@ -14,7 +14,7 @@ authors:
     orcid: 0009-0009-0171-4578
     affiliation: 1
 affiliations:
-  - name: Medical Artificial Intelligence Innovation Center, Shanghai East Hospital, Tongji University, Shanghai, China
+  - name: Joint Laboratory of Biomedical Artificial Intelligence, Shanghai East Hospital, Tongji University, Shanghai, China
     index: 1
 date: 14 June 2026
 bibliography: paper.bib
@@ -103,6 +103,8 @@ plot_acwr_enhanced(
 # Acknowledgements
 
 The author thanks Benjamin S. Baumer and Iztok Fister Jr. for their insightful feedback during early development, and rOpenSci handling editor Emily Riederer and reviewers Eunseop Kim and Simon Nolte for their peer-review guidance.
+
+The Joint Laboratory of Biomedical Artificial Intelligence was jointly established by the Institute of Software, Chinese Academy of Sciences, and Shanghai East Hospital.
 
 This work received no external funding.
 
