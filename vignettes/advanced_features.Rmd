@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-This vignette demonstrates the advanced features of Athlytics for sports physiology analysis:
+This vignette demonstrates the advanced features of Athlytics for endurance training analysis:
 
 1. **Data Quality Control**: Detecting and flagging HR/power spikes, GPS drift
 2. **ACWR with EWMA**: Exponentially weighted moving average with confidence bands
