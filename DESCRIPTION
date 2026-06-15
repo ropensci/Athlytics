@@ -2,7 +2,8 @@ Package: Athlytics
 Title: A Reproducible Framework for Endurance Data Analysis
 Version: 1.0.6
 Authors@R: c(
-    person("Zhiang", "He", email = "ang@hezhiang.com", role = c("aut", "cre")),
+    person("Zhiang", "He", email = "ang@hezhiang.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0009-0171-4578")),
     person("Eunseop", "Kim", role = "rev",
            comment = "Eunseop Kim reviewed the package (v. 1.0.4) for rOpenSci, see https://github.com/ropensci/software-review/issues/728"),
     person("Simon", "Nolte", role = "rev",
